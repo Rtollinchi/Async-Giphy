@@ -13,7 +13,12 @@ async function getImage(query) {
     const data = await response.json();
 
     const imageUrl = data.data[0].images.original.url
-    console.log(imageUrl)
+
+    const randomIndex = Math.floor(Math.random() * data.data.length)
+    const randomImage = data.data[randomIndex];
+    const randomGifUrl = randomImage.images.original.url
+    console.log(randomGifUrl)
+    return randomGifUrl;
   } catch (err) {
     console.error(err);
   }
